@@ -1,32 +1,38 @@
 import React, { Component } from 'react';
-import './App.css';
+import { COLORS } from './COLORS';
 
 class ColorPalette extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name : ['Chitwan Sunset', 'Sunwal Sunset', 'Ktm Sunset', 'Parasi Sunset', 'Dang Sunset', 'Pokhara Sunset', 'Lalitpur Sunset', 'Heaven Sunset'],
-      startEnd :  ['#CCFFFF -> #FFCCCC', '#CCFFFF -> #FFCCCC', '#CCFFFF -> #FFCCCC', '#CCFFFF -> #FFCCCC', '#CCFFFF -> #FFCCCC', '#CCFFFF -> #FFCCCC', '#CCFFFF -> #FFCCCC', '#CCFFFF -> #FFCCCC']
-      }
-      //bind this here
+      colors: COLORS
+    }
   }
   render() {
-    return (
-      <div className="ColorPalette">        
-            <div className="gradients">
+    const list = this.state.colors.map((item) => {
+      return(
+        <div className="gradientsInMapping">
+          <div key= {item.id} className="gradients" style={ item.background }>        
+          </div>
+          <div className="gradientsName">
+            <p>{item.color[0]} --> {item.color[1]}</p>
+          </div>
 
-            </div>
-            <div className="gradientsName">
-              <p>{mappingName}</p>
-              <p>{mappingStartEnd}</p>
-            </div>
-            <div className="gradientsLink">
-              <button>Copy CSS</button>
-              <button>Get .PNG</button>
-            </div>             
+          <div className="gradientsLink">
+            <button>Copy CSS</button>
+            <button>Get .PNG</button>
+         </div>       
+        </div>
+        
+      )
+    })
+    return (
+      <div className="ColorPalette">
+        {list}
       </div>
     );
   }
 }
+
 
 export default ColorPalette;

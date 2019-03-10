@@ -1,23 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
+
+import ColorPalette from './ColorPalette';
 import Header from './Header';
 import TextDescribed from './TextDescribed';
-
-// import ColorPalette from './ColorPalette';
 
 class App extends Component {
   render() {
     return (
-      <Header />
-      <TextDescribed />
       <div className="App">
-          <ColorPalette /> 
-          <ColorPalette /> 
-          <ColorPalette /> 
-          <ColorPalette /> 
-          <ColorPalette /> 
-          <ColorPalette /> 
-          <ColorPalette /> 
+          <Header />
+          <TextDescribed />
           <ColorPalette /> 
         </div>
     );
